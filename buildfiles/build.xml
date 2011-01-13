@@ -1,0 +1,21 @@
+<project name="MyProject" default="hello">
+
+    <target name="hello" depends="sleep1,sleep2">
+        <echo message="hi"/>
+    </target>
+
+    <target name="sleep1">
+        <echo message="sleep1 sleeping 2 seconds"/>
+        <sleep seconds="2"/>
+        <echo message="sleep1 sleeping 2 seconds"/>
+        <sleep seconds="2"/>
+    </target>
+
+    <target name="sleep2">
+        <echo message="sleep2 sleeping 3 seconds"/>
+        <sleep seconds="3"/>
+        <echo message="sleep2 sleeping 1 second"/>
+        <sleep seconds="1"/>
+    </target>
+
+</project>
