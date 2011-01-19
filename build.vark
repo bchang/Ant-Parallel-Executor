@@ -19,7 +19,7 @@ function compile() {
 @Depends("compile")
 function jar() {
   Ant.mkdir(:dir = distDir)
-  Ant.jar(:destfile = distDir.file("sampleproject.jar"),
+  Ant.jar(:destfile = distDir.file("antpx.jar"),
           :basedir = classesDir)
 }
 
