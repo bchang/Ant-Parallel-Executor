@@ -51,7 +51,11 @@ public class ParallelExecutor implements Executor {
         loadReadyTargets();
 
         try {
-            executorService.awaitTermination(timeout, TimeUnit.SECONDS);
+            boolean terminated = executorService.awaitTermination(timeout, TimeUnit.SECONDS);
+
+            if (!terminated) {
+              throw new BuildException("parallel target execution timed out at " + timeout + " seconds");
+            }
         }
         catch (InterruptedException e) {
             throw new RuntimeException(e);
